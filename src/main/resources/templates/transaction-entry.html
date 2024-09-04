@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Transaction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header, .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: #333;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="header">
+    <h1>Add New Transaction</h1>
+</div>
+<div class="container">
+    <form action="#" th:action="@{/transactions}" th:object="${transaction}" method="post">
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" th:field="*{amount}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" th:field="*{description}" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" th:field="*{categoryId}">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select id="type" th:field="*{type}">
+                <option value="INCOME">Income</option>
+                <option value="EXPENSE">Expense</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="button">Add Transaction</button>
+        </div>
+    </form>
+</div>
+<div class="footer">
+    <p>&copy; 2024 Personal Finance Tracker</p>
+</div>
+</body>
+</html>

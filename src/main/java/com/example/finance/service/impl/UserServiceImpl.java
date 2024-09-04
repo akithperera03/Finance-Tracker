@@ -1,0 +1,30 @@
+package com.example.finance.service.impl;
+
+import com.example.finance.dto.UserDTO;
+import com.example.finance.model.User;
+import com.example.finance.repository.UserRepository;
+import com.example.finance.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public void registerUser(UserDTO userDTO) {
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword()); // No encoding
+        userRepository.save(user);
+    }
+
+    // Add other methods from UserService if needed
+}
