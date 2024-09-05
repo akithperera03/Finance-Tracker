@@ -1,8 +1,9 @@
 package com.example.finance.service;
 
 import com.example.finance.dto.UserDTO;
+import com.example.finance.model.User;
 
 public interface UserService {
     void registerUser(UserDTO userDTO);
-    // Define other user-related methods if needed
+    User findByUsername(String username);
 }

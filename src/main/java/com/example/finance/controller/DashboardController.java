@@ -1,5 +1,6 @@
 package com.example.finance.controller;
 
+import com.example.finance.dto.TransactionDTO;
 import com.example.finance.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,4 +23,7 @@ public class DashboardController {
         model.addAttribute("recentTransactions", dashboardService.getRecentTransactions());
         return "dashboard";
     }
+
+
+
 }

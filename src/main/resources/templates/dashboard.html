@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
         body {
@@ -11,98 +13,123 @@
             padding: 0;
         }
 
-        .header, .footer {
-            background-color: #333;
+        .header {
+            background-color: #5D3FD3;
             color: white;
+            padding: 20px;
             text-align: center;
-            padding: 10px 0;
         }
 
         .container {
             width: 80%;
-            margin: 20px auto;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .table {
-            width: 100%;
+        h2 {
+            color: #333;
+        }
+
+        .nav-links {
             margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #5D3FD3;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .summary, .recent-transactions {
+            margin-bottom: 30px;
+        }
+
+        .summary h3, .recent-transactions h3 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
             border-collapse: collapse;
         }
 
-        .table th, .table td {
+        table th, table td {
+            padding: 12px;
+            text-align: left;
             border: 1px solid #ddd;
-            padding: 8px;
         }
 
-        .table th {
-            background-color: #333;
+        table th {
+            background-color: #5D3FD3;
             color: white;
         }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group select, .form-group button {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        .button {
-            background-color: #333;
+        .footer {
+            background-color: #5D3FD3;
             color: white;
-            padding: 10px;
             text-align: center;
-            border: none;
-            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
-
-        .button:hover {
-            background-color: #555;
-        }
-
     </style>
-
 </head>
+
 <body>
 <div class="header">
-    <h1>Personal Finance Dashboard</h1>
+    <h1>Dashboard</h1>
 </div>
-<div class="container">
-    <h2>Financial Summary</h2>
-    <p>Total Income: ${{summary.totalIncome}}</p>
-    <p>Total Expenses: ${{summary.totalExpenses}}</p>
 
-    <h2>Recent Transactions</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Amount</th>
-            <th>Type</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="transaction : ${recentTransactions}">
-            <td th:text="${transaction.transactionDate}"></td>
-            <td th:text="${transaction.description}"></td>
-            <td th:text="${transaction.category.name}"></td>
-            <td th:text="${transaction.amount}"></td>
-            <td th:text="${transaction.type}"></td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="nav-links">
+        <a href="/transactions/new">Add Transaction</a>
+        <a href="/categories">Category Management</a>
+    </div>
+
+    <div class="summary">
+        <h2>Financial Summary</h2>
+        <p>Total Income: <span th:text="${summary.totalIncome}">X</span></p>
+<!--        <p>Total Expenses: ${summary.totalExpenses}</p>-->
+
+        <p>Total Expenses: <span th:text="${summary.getTotalExpense()}">Y</span></p>
+        <p>Net Balance: <span th:text="${summary.netBalance}">Z</span></p>
+    </div>
+
+    <div class="recent-transactions">
+        <h2>Recent Transactions</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="transaction : ${recentTransactions}">
+                <td th:text="${transaction.date}">2024-09-01</td>
+                <td th:text="${transaction.description}">Salary</td>
+                <td th:text="${transaction.amount}">$1,000</td>
+                <td th:text="${transaction.category}">Income</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <div class="footer">
     <p>&copy; 2024 Personal Finance Tracker</p>
 </div>
 </body>
+
 </html>

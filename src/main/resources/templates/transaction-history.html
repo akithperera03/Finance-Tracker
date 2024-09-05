@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction History</title>
     <style>
         body {
@@ -10,94 +11,65 @@
             margin: 0;
             padding: 0;
         }
-
-        .header, .footer {
-            background-color: #333;
+        .header {
+            background-color: #5D3FD3;
             color: white;
+            padding: 20px;
             text-align: center;
-            padding: 10px 0;
         }
-
         .container {
             width: 80%;
             margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .table {
+        table {
             width: 100%;
-            margin-bottom: 20px;
             border-collapse: collapse;
         }
-
-        .table th, .table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        .table th {
-            background-color: #333;
-            color: white;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group select, .form-group button {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        .button {
-            background-color: #333;
-            color: white;
+        table th, table td {
             padding: 10px;
-            text-align: center;
-            border: none;
-            cursor: pointer;
+            border: 1px solid #ddd;
+            text-align: left;
         }
-
-        .button:hover {
-            background-color: #555;
+        table th {
+            background-color: #5D3FD3;
+            color: white;
         }
-
     </style>
-
 </head>
 <body>
 <div class="header">
     <h1>Transaction History</h1>
 </div>
 <div class="container">
-    <table class="table">
+    <table>
         <thead>
         <tr>
             <th>Date</th>
             <th>Description</th>
-            <th>Category</th>
             <th>Amount</th>
-            <th>Type</th>
+            <th>Category</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="transaction : ${transactions}">
-            <td th:text="${transaction.transactionDate}"></td>
-            <td th:text="${transaction.description}"></td>
-            <td th:text="${transaction.category.name}"></td>
-            <td th:text="${transaction.amount}"></td>
-            <td th:text="${transaction.type}"></td>
+        <!-- Example transactions data -->
+        <tr>
+            <td>2024-09-01</td>
+            <td>Salary</td>
+            <td>$3000</td>
+            <td>Income</td>
+        </tr>
+        <tr>
+            <td>2024-09-05</td>
+            <td>Grocery</td>
+            <td>$200</td>
+            <td>Expense</td>
         </tr>
         </tbody>
     </table>
-</div>
-<div class="footer">
-    <p>&copy; 2024 Personal Finance Tracker</p>
 </div>
 </body>
 </html>

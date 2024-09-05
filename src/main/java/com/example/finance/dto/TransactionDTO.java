@@ -1,64 +1,43 @@
 package com.example.finance.dto;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public class TransactionDTO {
 
-    @NotNull
+    @NotNull(message = "Amount is required")
+    @Positive(message = "Amount must be positive")
     private BigDecimal amount;
 
-    private String description;
-
-    @NotNull
-    private LocalDateTime transactionDate;
-
-    @NotNull
-    private String type;
-
-    @NotNull
+    @NotNull(message = "Category ID is required")
     private Long categoryId;
 
-    // Getters and setters
+    @NotNull(message = "User ID is required")
+    private Long userId;
 
-    public @NotNull BigDecimal getAmount() {
+    // Getters and Setters
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(@NotNull BigDecimal amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public @NotNull LocalDateTime getTransactionDate() {
-        return transactionDate;
-    }
-
-    public void setTransactionDate(@NotNull LocalDateTime transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-
-    public @NotNull String getType() {
-        return type;
-    }
-
-    public void setType(@NotNull String type) {
-        this.type = type;
-    }
-
-    public @NotNull Long getCategoryId() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(@NotNull Long categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

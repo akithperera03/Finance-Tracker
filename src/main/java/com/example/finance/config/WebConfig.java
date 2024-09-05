@@ -9,6 +9,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        // Map URL to view names
         registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/register").setViewName("register");
+        registry.addViewController("/dashboard").setViewName("dashboard");
+        registry.addViewController("/categories").setViewName("category-management");
+        registry.addViewController("/transactions").setViewName("transaction-history");
     }
 }

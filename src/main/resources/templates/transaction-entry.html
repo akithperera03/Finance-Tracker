@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Transaction</title>
     <style>
         body {
@@ -10,100 +11,79 @@
             margin: 0;
             padding: 0;
         }
-
-        .header, .footer {
-            background-color: #333;
+        .header {
+            background-color: #5D3FD3;
             color: white;
+            padding: 20px;
             text-align: center;
-            padding: 10px 0;
         }
-
         .container {
-            width: 80%;
-            margin: 20px auto;
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .table {
-            width: 100%;
+        h2 {
             margin-bottom: 20px;
-            border-collapse: collapse;
+            color: #333;
         }
-
-        .table th, .table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        .table th {
-            background-color: #333;
-            color: white;
-        }
-
         .form-group {
             margin-bottom: 15px;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 5px;
         }
-
         .form-group input, .form-group select, .form-group button {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             box-sizing: border-box;
         }
-
-        .button {
-            background-color: #333;
+        .form-group button {
+            background-color: #5D3FD3;
             color: white;
-            padding: 10px;
-            text-align: center;
             border: none;
             cursor: pointer;
         }
-
-        .button:hover {
-            background-color: #555;
+        .form-group button:hover {
+            background-color: #4A2BAE;
         }
-
     </style>
-
 </head>
 <body>
 <div class="header">
-    <h1>Add New Transaction</h1>
+    <h1>Add Transaction</h1>
 </div>
 <div class="container">
-    <form action="#" th:action="@{/transactions}" th:object="${transaction}" method="post">
+    <form action="/transactions" method="post">
         <div class="form-group">
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" th:field="*{amount}" required>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
         </div>
         <div class="form-group">
-            <label for="description">Description:</label>
-            <input type="text" id="description" th:field="*{description}" required>
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" required>
         </div>
         <div class="form-group">
-            <label for="category">Category:</label>
-            <select id="category" th:field="*{categoryId}">
-                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+                <!-- Dynamically populate categories from backend -->
+                <option value="Salary">Salary</option>
+                <option value="Rent">Rent</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="type">Type:</label>
-            <select id="type" th:field="*{type}">
-                <option value="INCOME">Income</option>
-                <option value="EXPENSE">Expense</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="button">Add Transaction</button>
+            <button type="submit">Add Transaction</button>
         </div>
     </form>
-</div>
-<div class="footer">
-    <p>&copy; 2024 Personal Finance Tracker</p>
 </div>
 </body>
 </html>

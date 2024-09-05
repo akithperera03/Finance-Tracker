@@ -4,27 +4,26 @@ import jakarta.validation.constraints.NotBlank;
 
 public class CategoryDTO {
 
-    @NotBlank
+    @NotBlank(message = "Category name is required")
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "Category type is required")
     private String type;
 
-    // Getters and setters
-
-    public @NotBlank String getName() {
+    // Getters and Setters
+    public String getName() {
         return name;
     }
 
-    public void setName(@NotBlank String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public @NotBlank String getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(@NotBlank String type) {
+    public void setType(String type) {
         this.type = type;
     }
 }

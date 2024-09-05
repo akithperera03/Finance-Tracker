@@ -3,84 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
         .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
         }
         h2 {
             margin-bottom: 20px;
-            font-size: 24px;
             color: #333;
         }
-        label {
-            font-size: 14px;
-            margin-bottom: 5px;
-            display: block;
-            color: #666;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
+        .form-group {
             margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
         }
-        button {
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
             width: 100%;
             padding: 10px;
-            background-color: #6c00ff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5D3FD3;
+            color: white;
             border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #5a00cc;
+        .form-group button:hover {
+            background-color: #4A2BAE;
         }
-        .register-link {
-            display: block;
+        .footer {
             text-align: center;
             margin-top: 20px;
-            font-size: 14px;
-            color: #6c00ff;
-            text-decoration: none;
-        }
-        .register-link:hover {
-            color: #5a00cc;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>User Login</h2>
-    <p>Please enter your credentials to log in.</p>
+    <h2>Login</h2>
     <form action="/login" method="post">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit">Login</button>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
     </form>
-    <a href="/register" class="register-link">Don't have an account? Register</a>
+    <div class="footer">
+        <p>Don't have an account? <a href="/register">Register here</a></p>
+    </div>
 </div>
 </body>
 </html>

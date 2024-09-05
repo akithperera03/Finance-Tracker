@@ -1,10 +1,10 @@
 package com.example.finance.service;
 
-import java.util.Map;
-import java.util.List;
+import com.example.finance.dto.FinancialSummaryDTO;
 import com.example.finance.model.Transaction;
+import java.util.List;
 
 public interface DashboardService {
-    Map<String, Object> getFinancialSummary();
+    FinancialSummaryDTO getFinancialSummary();
     List<Transaction> getRecentTransactions();
 }

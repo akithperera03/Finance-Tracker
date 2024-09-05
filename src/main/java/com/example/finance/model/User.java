@@ -1,6 +1,7 @@
 package com.example.finance.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -18,6 +19,10 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @OneToMany(mappedBy = "user")
+    private List<Transaction> transactions;
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -48,5 +53,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }

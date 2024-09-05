@@ -2,6 +2,7 @@ package com.example.finance.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,19 +15,20 @@ public class Transaction {
     @Column(nullable = false)
     private BigDecimal amount;
 
-    private String description;
-
     @Column(nullable = false)
-    private LocalDateTime transactionDate;
+    private LocalDateTime date;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private TransactionType type;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -43,28 +45,20 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getDescription() {
-        return description;
+    public LocalDateTime getDate() {
+        return date;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
-    public LocalDateTime getTransactionDate() {
-        return transactionDate;
+    public User getUser() {
+        return user;
     }
 
-    public void setTransactionDate(LocalDateTime transactionDate) {
-        this.transactionDate = transactionDate;
-    }
-
-    public TransactionType getType() {
-        return type;
-    }
-
-    public void setType(TransactionType type) {
-        this.type = type;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Category getCategory() {
