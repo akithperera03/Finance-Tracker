@@ -52,13 +52,31 @@
         .form-group button:hover {
             background-color: #4A2BAE;
         }
+        .nav-links {
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #5D3FD3;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 <div class="header">
     <h1>Add Transaction</h1>
 </div>
+
 <div class="container">
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+    </div>
     <form action="/transactions" method="post">
         <div class="form-group">
             <label for="date">Date</label>
@@ -75,9 +93,9 @@
         <div class="form-group">
             <label for="category">Category</label>
             <select id="category" name="category" required>
-                <!-- Dynamically populate categories from backend -->
                 <option value="Salary">Salary</option>
                 <option value="Rent">Rent</option>
+                <option value="Other">Other</option>
             </select>
         </div>
         <div class="form-group">

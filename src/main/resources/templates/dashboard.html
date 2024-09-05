@@ -93,13 +93,12 @@
     <div class="nav-links">
         <a href="/transactions/new">Add Transaction</a>
         <a href="/categories">Category Management</a>
+        <a href="/transaction-history">Transaction History</a> <!-- Added link to history page -->
     </div>
 
     <div class="summary">
         <h2>Financial Summary</h2>
         <p>Total Income: <span th:text="${summary.totalIncome}">X</span></p>
-<!--        <p>Total Expenses: ${summary.totalExpenses}</p>-->
-
         <p>Total Expenses: <span th:text="${summary.getTotalExpense()}">Y</span></p>
         <p>Net Balance: <span th:text="${summary.netBalance}">Z</span></p>
     </div>

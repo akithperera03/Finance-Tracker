@@ -91,13 +91,31 @@
     .add-new-category button:hover {
       background-color: #4A2BAE;
     }
+    .nav-links {
+      margin-bottom: 20px;
+    }
+
+    .nav-links a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #5D3FD3;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 <div class="header">
   <h1>Manage Categories</h1>
 </div>
+
 <div class="container">
+  <div class="nav-links">
+    <a href="/dashboard">Dashboard</a>
+  </div>
   <div class="add-new-category">
     <button onclick="window.location.href='/categories/new'">Add New Category</button>
   </div>
@@ -140,16 +158,22 @@
       <td><button class="edit" onclick="editCategory()">Edit</button></td>
       <td><button class="delete" onclick="deleteCategory()">Delete</button></td>
     </tr>
+    <tr>
+      <td>Rental INCOME</td>
+      <td>INCOME</td>
+      <td><button class="edit" onclick="editCategory()">Edit</button></td>
+      <td><button class="delete" onclick="deleteCategory()">Delete</button></td>
+    </tr>
     </tbody>
   </table>
 </div>
 <script>
   function editCategory() {
-    alert('Edit functionality not implemented.');
+    alert('Edit functionality not implemented.☹️');
   }
 
   function deleteCategory() {
-    alert('Delete functionality not implemented.');
+    alert('Delete functionality not implemented.☹️');
   }
 </script>
 </body>

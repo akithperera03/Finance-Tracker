@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,65 +12,119 @@
             margin: 0;
             padding: 0;
         }
+
         .header {
             background-color: #5D3FD3;
             color: white;
             padding: 20px;
             text-align: center;
         }
+
         .container {
             width: 80%;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 20px;
             background: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            color: #333;
+        }
+
+        .nav-links {
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #5D3FD3;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
+
         table th, table td {
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 12px;
             text-align: left;
+            border: 1px solid #ddd;
         }
+
         table th {
             background-color: #5D3FD3;
             color: white;
         }
+
+        .footer {
+            background-color: #5D3FD3;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
+
 <body>
 <div class="header">
     <h1>Transaction History</h1>
 </div>
+
 <div class="container">
-    <table>
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Amount</th>
-            <th>Category</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Example transactions data -->
-        <tr>
-            <td>2024-09-01</td>
-            <td>Salary</td>
-            <td>$3000</td>
-            <td>Income</td>
-        </tr>
-        <tr>
-            <td>2024-09-05</td>
-            <td>Grocery</td>
-            <td>$200</td>
-            <td>Expense</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+    </div>
+
+    <div class="history">
+        <h2>All Transactions</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="transaction : ${allTransactions}">
+                <td th:text="${transaction.date}">2024-09-01</td>
+                <td th:text="${transaction.description}">Grocery Shopping</td>
+                <td th:text="${transaction.amount}">$50</td>
+                <td th:text="${transaction.category}">Expense</td>
+            </tr>
+            <tr>
+                <td>2024-09-01</td>
+                <td>Grocery Shopping</td>
+                <td>LKR5000</td>
+                <td>Expense</td>
+            </tr>
+            <tr>
+                <td>2024-09-05</td>
+                <td>Rental Income</td>
+                <td>LKR150000</td>
+                <td>INCOME</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Personal Finance Tracker</p>
 </div>
 </body>
+
 </html>
