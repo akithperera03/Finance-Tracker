@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     public void registerUser(UserDTO userDTO) {
         User user = new User();
         user.setUsername(userDTO.getUsername());
-        user.setPassword(userDTO.getPassword());  // Plain text, adjust for encoding if needed
+        user.setPassword(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
 
         userRepository.save(user);

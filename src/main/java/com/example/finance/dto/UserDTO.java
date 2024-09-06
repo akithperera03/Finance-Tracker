@@ -15,7 +15,7 @@ public class UserDTO {
     @NotBlank(message = "Email is required")
     private String email;
 
-    // Getters and Setters
+
     public String getUsername() {
         return username;
     }

@@ -20,7 +20,7 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Transaction> transactions;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

@@ -8,7 +8,7 @@ public class FinancialSummaryDTO {
     private BigDecimal totalExpense;
     private BigDecimal netBalance;
 
-    // Getters and Setters
+
     public BigDecimal getTotalIncome() {
         return totalIncome;
     }

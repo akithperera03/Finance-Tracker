@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FinanceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FinanceApplication.class, args);
+		SpringApplication.run(FinanceApplication.class,args);
 	}
 }

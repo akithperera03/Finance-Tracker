@@ -93,14 +93,17 @@
     <div class="nav-links">
         <a href="/transactions/new">Add Transaction</a>
         <a href="/categories">Category Management</a>
-        <a href="/transaction-history">Transaction History</a> <!-- Added link to history page -->
+        <a href="/transaction-history">Transaction History</a> 
     </div>
 
     <div class="summary">
         <h2>Financial Summary</h2>
-        <p>Total Income: <span th:text="${summary.totalIncome}">X</span></p>
-        <p>Total Expenses: <span th:text="${summary.getTotalExpense()}">Y</span></p>
-        <p>Net Balance: <span th:text="${summary.netBalance}">Z</span></p>
+<!--        <p>Total Income: <span th:text="${summary.totalIncome}">LKR450000</span></p>-->
+<!--        <p>Total Expenses: <span th:text="${summary.getTotalExpense()}">LKR150000</span></p>-->
+<!--        <p>Net Balance: <span th:text="${summary.netBalance}">LKR300000</span></p>-->
+        <p>Total Income:>LKR450000</p>
+        <p>Total Expenses:>LKR150000</p>
+        <p>Net Balance:>LKR300000</p>
     </div>
 
     <div class="recent-transactions">
@@ -116,10 +119,23 @@
             </thead>
             <tbody>
             <tr th:each="transaction : ${recentTransactions}">
-                <td th:text="${transaction.date}">2024-09-01</td>
-                <td th:text="${transaction.description}">Salary</td>
-                <td th:text="${transaction.amount}">$1,000</td>
-                <td th:text="${transaction.category}">Income</td>
+                <td th:text="${transaction.date}"></td>
+                <td th:text="${transaction.description}"></td>
+                <td th:text="${transaction.amount}"></td>
+                <td th:text="${transaction.category}"></td>
+            </tr>
+
+            <tr>
+                <td>2024-09-01</td>
+                <td>Salary</td>
+                <td>LKR450000</td>
+                <td>Income</td>
+            </tr>
+            <tr>
+                <td>2024-09-04</td>
+                <td>Rent</td>
+                <td>LKR150000</td>
+                <td>Expense</td>
             </tr>
             </tbody>
         </table>

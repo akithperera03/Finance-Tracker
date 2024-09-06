@@ -10,7 +10,7 @@ public class CategoryDTO {
     @NotBlank(message = "Category type is required")
     private String type;
 
-    // Getters and Setters
+
     public String getName() {
         return name;
     }

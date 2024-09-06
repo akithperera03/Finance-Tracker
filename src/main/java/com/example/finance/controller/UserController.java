@@ -42,8 +42,7 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginUser(@RequestParam String username, @RequestParam String password) {
-        // Implement custom login logic if needed
-        // For simplicity, you can redirect to the dashboard or login error page
-        return "redirect:/dashboard"; // Adjust this as necessary
+
+        return "redirect:/dashboard";
     }
 }

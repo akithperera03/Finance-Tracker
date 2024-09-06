@@ -16,7 +16,7 @@ public class TransactionDTO {
     @NotNull(message = "User ID is required")
     private Long userId;
 
-    // Getters and Setters
+
     public BigDecimal getAmount() {
         return amount;
     }

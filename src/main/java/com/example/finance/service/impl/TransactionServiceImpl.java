@@ -36,7 +36,7 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setAmount(transactionDTO.getAmount());
         transaction.setDate(LocalDateTime.now());
 
-        // Fetch Category and User
+
         Category category = categoryRepository.findById(transactionDTO.getCategoryId())
                 .orElseThrow(() -> new RuntimeException("Category not found"));
         User user = userRepository.findById(transactionDTO.getUserId())

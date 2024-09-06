@@ -24,7 +24,7 @@ public class CategoryServiceImpl implements CategoryService {
     public void saveCategory(CategoryDTO categoryDTO) {
         Category category = new Category();
         category.setName(categoryDTO.getName());
-        category.setType(TransactionType.valueOf(categoryDTO.getType()));  // Convert string to enum
+        category.setType(TransactionType.valueOf(categoryDTO.getType()));
         categoryRepository.save(category);
     }
 
