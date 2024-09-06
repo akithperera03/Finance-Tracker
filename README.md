@@ -40,8 +40,8 @@ Before you start, make sure you have the following tools installed:
 
 -Create a MySQL database named finance_tracker
 -Update the src/main/resources/application.properties file with your database credentials:
-    properties
-    
+
+   ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/finance_tracker
 spring.datasource.username=your_username
 spring.datasource.password=your_password
